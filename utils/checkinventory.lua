@@ -1,3 +1,5 @@
+require "utils.resetslot"
+
 --[[ Checks if the inventory is full.
      Returns true on full.
      --]]

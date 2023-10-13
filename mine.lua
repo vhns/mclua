@@ -1,4 +1,5 @@
-require utils
+require "utils"
+
 function emptyinventory(x, y, z)
     resetpos(x, y, z)
 	for i = 2, 16 do

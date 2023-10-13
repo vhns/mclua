@@ -1,3 +1,5 @@
+require "utils.refuel"
+
 function newup(y)
 	for i = 1, y do
 		refuel()

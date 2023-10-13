@@ -1,3 +1,5 @@
+require "utils.refuel"
+
 function newforward(x)
 	for i = 0, x - 1 do
 	    refuel()
