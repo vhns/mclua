@@ -113,9 +113,10 @@ end
 function godown(length, height)
     local moves = moves(length)
     if not digdir(moves) then
-        newdown(height)
-    else
-        newforward(1)
+	if length % 2 == 0 then
+		newforward(1)
+	end
+        newdown(height-1)
     end
 end
 
