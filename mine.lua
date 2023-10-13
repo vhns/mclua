@@ -1,46 +1,57 @@
-require "utils"
+require("utils.newdown")
+require("utils.newup")
+require("utils.newforward")
+require("utils.newback")
+require("utils.newdig")
+require("utils.flipbool")
 
 function emptyinventory(x, y, z)
-    resetpos(x, y, z)
+	resetpos(x, y, z)
 	for i = 2, 16 do
 		turtle.select(i)
 		turtle.dropDown()
 	end
 	resetslot()
-	if z then
-        if not (z == 0) then
-            if z <= 0 then
-                turtle.turnLeft()
-            else
-                turtle.turnRight()
-            end
-            newforward(math.abs(z))
-            if z <= 0 then
-                turtle.turnRight()
-            else
-                turtle.turnLeft()
-            end
-        end
-    end
+	turtle180()
+	if not (z == nil) then
+        	if not (z == 0) then
+            		if z <= 0 then
+                		turtle.turnLeft()
+			        else
+                		turtle.turnRight()
+			        end
+            		newforward(math.abs(z))
+			        if z <= 0 then
+			        	turtle.turnRight()
+            		else
+                		turtle.turnLeft()
+            		end
+        	end
+    	end
 	newforward(x)
 	newup(y)
+	if not (xdelta == nil) then
+		if xdelta == false then
+			turtle180()
+		end
+	end
 end
 
 function resetpos(x, y, z)
 	newdown(y)
 	newback(x)
-	if z then
+	if not (z == nil) then
 	    if not (z == 0) then
 	        if z <= 0 then
-	            turtle.turnRight()
-	        else
 	            turtle.turnLeft()
+	        else
+	            turtle.turnRight()
             end
             newforward(math.abs(z))
 	        if z <= 0 then
-	            turtle.turnLeft()
-	        else
 	            turtle.turnRight()
+	        else
+	            turtle.turnLeft()
             end
         end
     end
@@ -110,8 +121,14 @@ end
 
 function cubedig(height, length, width)
     xdelta = true
-    xpos = 1
+    xpos = 0
+    ypos = 0
+    zpos = 0
+    docheckinventory = true
     for i = 1, width do
+	if not (i == 1) then
+		xdelta = flipbool(xdelta)
+	end
         tunneldig(height, length)
         godown(length, height)
         if digdir(i) then
@@ -127,5 +144,6 @@ function cubedig(height, length, width)
         else
             turtle.turnRight()
         end
+	zpos = zpos + 1
     end
 end

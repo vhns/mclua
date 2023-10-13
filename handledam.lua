@@ -1,6 +1,6 @@
-require "utils.newforward"
-require "utils.resetslot"
-require "utils.turtle180"
+require("utils.newforward")
+require("utils.resetslot")
+require("utils.turtle180")
 
 function handledam(length)
     for i = 1, length do

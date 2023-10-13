@@ -1,4 +1,7 @@
-require "utils"
+require("utils.newdown")
+require("utils.newforward")
+require("utils.newup")
+require("utils.turtle180")
 
 function reaptreeline(amount,spacing)
     for i = 1, amount do
