@@ -108,6 +108,8 @@ function godown(length, height)
 end
 
 function cubedig(height, length, width)
+    xdelta = true
+    xpos = 1
     for i = 1, width do
         tunneldig(height, length)
         godown(length, height)
