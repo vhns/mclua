@@ -1,4 +1,5 @@
 require("utils.checkinventory")
+require("utils.emptyinventory")
 
 function newdig()
    if docheckinventory then

@@ -1,4 +1,5 @@
 require("utils.checkinventory")
+require("utils.emptyinventory")
 require("utils.refuel")
 
 function newdown(y)
